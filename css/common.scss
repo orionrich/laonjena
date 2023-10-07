@@ -1,0 +1,316 @@
+
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit; /* 폰트를 상속받게 설정 */
+  font-size: inherit;   /* 폰트 크기를 상속받게 설정 */
+  color: inherit;       /* 폰트 색상을 상속받게 설정 */
+  line-height: inherit; /* 줄 간격을 상속받게 설정 */
+  -webkit-appearance: none; /* 웹킷 기반 브라우저에서의 기본 스타일 제거 */
+  -moz-appearance: none;    /* 파이어폭스에서의 기본 스타일 제거 */
+  appearance: none;         /* 기본 스타일 제거 */
+}
+
+
+$black:#030303;
+
+div{font-family:'Noto Sans KR', sans-serif; }
+a {text-decoration: none; outline: none; color: $black;}
+
+a:hover, a:active {text-decoration: none; color:$black;}
+
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+};
+
+@mixin bg-center{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+};
+
+// 데스크탑 헤더 -------------------------------------
+
+.desktop-header{
+  margin:30px 0;
+  .size_wrap{
+    width: 1280px;
+    margin: 0 auto;
+    .gnb{
+      @include flex-center;
+      justify-content: space-between;
+      .gnb_l{
+        @include flex-center;
+        .logo{
+          font-family: 'Roboto', sans-serif;
+          font-weight: 200;
+          font-size: 24px;
+          color: #B76E79;
+          margin-right: 40px;
+          span{
+            font-weight: 500;
+          }
+        }
+        .main_menu{
+          color: #757575;
+          font-weight: 300;
+          font-size: 16px;
+          @include flex-center;
+          li{
+            margin-left: 18px;
+          }
+        }
+      }
+      
+      .gnb_r{
+        @include flex-center;
+        .search_bar{
+          width: 385px;
+          height: 42px;
+          background-color:#F2F2F2; 
+          border-radius: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          .search-input{
+            width: 80%;
+          }
+          a{
+            img{
+              width: 24px;
+              height: 24px;
+              margin-right: 20px;
+            }
+          }
+        }
+        .member_menu{
+          font-size: 14px;
+          color: #757575;
+          font-weight: 300;
+          @include flex-center;
+          li{
+            margin-left: 20px;
+          }
+          
+        }
+      }
+    }
+  }
+}
+
+
+
+// 모바일 헤더-------------------------
+.mobile-header{
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: none;
+  .mobile_flexbox{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .logo{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    color: #B76E79;
+    margin-right: 40px;
+    span{
+      font-weight: 500;
+    }
+  }
+}
+
+.mobile_btn {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+}
+
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #565656;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+.line:nth-child(1) {
+  top: calc(50% - 3px - 2px - 2px); // 2px는 선의 높이, 3px은 선 간의 간격
+}
+
+.line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line:nth-child(3) {
+  top: calc(50% + 3px + 2px);
+}
+
+.mobile_btn.active .line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.mobile_btn.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile_btn.active .line:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* 사이드바의 너비만큼 왼쪽으로 숨깁니다 */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: right 0.3s ease; /* 부드러운 애니메이션 효과를 위함 */
+  z-index: 2;
+  box-shadow: -8px 0px 10px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  .logo{
+    padding: 20px 40px;
+  }
+  .sidebar_menu{
+    padding: 20px 30px;
+    ul{
+      margin-top: 20px;
+      li{
+        padding: 0 10px;
+        font-size: 20px;
+        line-height: 40px;
+        font-weight: 300;
+      }
+      li:hover{
+        background-color: #fadee2;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+
+
+.sidebar.active {
+  right: 0; /* 활성화될 때 화면에 나타나게 함 */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* 불투명한 검은색 */
+  z-index: 100; /* 다른 요소 위에 위치하도록 */
+  display: none; /* 기본적으로 숨겨져 있음 */
+}
+
+
+
+
+// 푸터 ------------------------
+footer{
+  .line01{
+    margin-top: 120px;
+  }
+  .footer_line{
+    width: 100%;
+    height: 1px;
+    background-color: #d4d4d4;
+  }
+  .foter_wrap{
+    width: 1280px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    .logo{
+      font-family: 'Roboto', sans-serif;
+      font-weight: 200;
+      font-size: 36px;
+      color: #B76E79;
+      margin-right: 40px;
+      span{
+        font-weight: 500;
+      }
+    }
+    .sns_wrap{
+      margin-top: 20px;
+    }
+  }
+
+  h4{
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .text_flex{
+    display: flex;
+    p{
+      margin-top: 10px;
+    }
+  }
+  .l_text{
+    margin-right: 20px;
+    font-weight: 300;
+  }
+  .copyright{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #757575;
+    font-size: 12px;
+  }
+}
+
+
+
+// 미디어 쿼리 -------------------------------
+
+/* 중형 화면 (태블릿) */
+@media (max-width: 1279px) {
+  .desktop-header .size_wrap{
+    width: 100%;
+  }
+  .desktop-header .size_wrap .gnb .gnb_r .search_bar{
+    width: 200px;
+  }
+  .mobile-header{
+    display: none;
+  }
+  footer .foter_wrap{
+    width: 90%;
+    flex-direction: column;
+  }
+  footer .foter_wrap>div{
+    margin-top: 20px;
+  }
+}
+
+/* 소형 화면 (모바일 가로 + 모바일 세로) */
+@media (max-width: 767px) {
+  
+  .desktop-header{
+    display: none;
+  }
+  .mobile-header{
+    display: block;
+  }
+
+}
