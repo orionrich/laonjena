@@ -1,0 +1,252 @@
+.top_area {
+  width: 1280px;
+  margin: 0 auto;
+  .title {
+    font-size: 24px;
+  }
+  .related_searches {
+    display: flex;
+    width: 100%;
+    border: 1px solid #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    span {
+      font-weight: bold;
+      color: #b76e79;
+      margin-right: 20px;
+    }
+    ul {
+      display: flex;
+      color: #666;
+      li {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.toggle-btn-wrap {
+  width: 1280px;
+  margin: 40px auto;
+  .toggle-btn {
+    /* 버튼 기본 스타일 */
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+  }
+
+  .active {
+    /* 활성화 상태일 때의 스타일 */
+    background-color: #b76e79;
+    color: #fff;
+  }
+}
+
+.product_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 20px; /* 상품 카드 간의 간격 */
+  justify-content: center; /* 전체 그리드 시스템을 중앙에 위치 */
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  /* width: 280px; 더 이상 필요 없음, grid-template-columns가 처리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* margin-top: 20px; 더 이상 필요 없음, grid-gap이 처리 */
+}
+/* The following CSS will ensure that the last row of items has the same spacing as the other rows */
+/* We will use :after to create invisible flex items to push the last row items together */
+.product_list::after {
+  content: '';
+  width: 280px;
+  margin-top: 20px;
+  flex: auto;
+  visibility: hidden;
+}
+.product-image {
+  img {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}
+
+.product-info {
+  padding: 16px;
+
+  .product-title {
+    font-size: 18px;
+    margin: 8px 0;
+    letter-spacing: -1px;
+    height: 40px;
+    line-height: 20px;
+  }
+
+  .product-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 20px;
+    height: 40px;
+  }
+
+  .product-price {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    span {
+      font-size: 14px;
+      color: #888;
+      font-weight: 400;
+      margin-left: 10px;
+      text-decoration: line-through;
+    }
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .stars {
+      color: #f5a623;
+      margin-top: 5px;
+    }
+
+    .rating {
+      font-size: 14px;
+      color: #333;
+      margin-left: 4px;
+    }
+  }
+
+  .shopping-button {
+    background: #ccc;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #b76e79;
+      color: #fff;
+    }
+  }
+}
+
+.pagination-wrap {
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  .page {
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .control {
+    width: 48px;
+    padding: 0;
+    margin: 0 5px;
+    border: 0;
+    img {
+      width: 48px;
+    }
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .page.active,
+  .control {
+    background-color: black;
+    color: white;
+  }
+
+  /* 추가적인 스타일링과 호버 효과 */
+  .page:not(.active):hover {
+    background-color: #eee;
+  }
+
+  .page.active {
+    pointer-events: none; /* 활성화된 페이지는 클릭 불가 */
+  }
+}
+
+// 미디어 쿼리 -------------------------------
+
+/* 중형 화면 (태블릿) */
+@media (max-width: 1279px) {
+  .toggle-btn-wrap {
+    width: 95%;
+  }
+  .main_img {
+    width: 95%;
+  }
+  .product_list {
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
+    grid-gap: 20px; /* 상품 카드 간의 간격 */
+    justify-content: center; /* 전체 그리드 시스템을 중앙에 위치 */
+    width: 95%;
+    margin: 0 auto;
+  }
+  .top_area {
+    width: 100%;
+  }
+  .top_area .related_searches ul {
+    flex-wrap: wrap;
+  }
+}
+
+/* 중형 화면 (태블릿) */
+@media (max-width: 767px) {
+  .main_img {
+    padding-top: 60px;
+  }
+  .product_list {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+  .top_area .related_searches {
+    flex-direction: column;
+  }
+  .top_area {
+    padding-top: 100px;
+    width: 95%;
+  }
+  .top_area .related_searches ul {
+    margin-top: 20px;
+  }
+  .top_area .related_searches ul li {
+    margin: 0px;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product_list {
+    grid-template-columns: repeat(1, minmax(280px, 1fr));
+  }
+}

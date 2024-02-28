@@ -1,0 +1,175 @@
+.container {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-card {
+  display: grid !important;
+  grid-template-columns: 165px 3fr 100px 100px 100px; /* auto로 수정 */
+  grid-template-areas: 'image name price quantity total';
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 8px 1px #f2f2f2;
+  white-space: normal; /* white-space 속성을 normal로 설정 */
+  img {
+    width: 165px;
+    height: auto;
+  }
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.price {
+  color: #555;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  width: 100px; /* Fixing the width of the quantity control */
+}
+
+.quantity-control button,
+.quantity-control input {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.quantity-control input {
+  text-align: center;
+  width: 50px; /* Fixing the width of the input field */
+}
+
+.total-price {
+  font-weight: bold;
+  white-space: nowrap; /* white-space 속성을 nowrap으로 설정 */
+}
+.flex_right {
+  display: flex;
+  justify-content: flex-end;
+}
+.buy_info {
+  margin: 20px;
+  width: 360px;
+  .buy_info_a {
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: bold;
+  }
+  .buy_info_b {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  .buy_info_c {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  .buy_info_d {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  .buy_btn {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #f2f2f2;
+  }
+}
+// 미디어 쿼리 -------------------------------
+
+/* 중형 화면 (태블릿) */
+@media (max-width: 1279px) {
+  .container {
+    width: 95%;
+  }
+  .product-name {
+    line-height: 30px;
+  }
+}
+
+/* 중형 화면 (태블릿) */
+@media (max-width: 767px) {
+  .product-card {
+    grid-template-rows: auto;
+    grid-template-areas:
+      'image name name name name'
+      'price quantity quantity quantity total';
+    grid-template-columns: 165px 1fr;
+  }
+  .container {
+    padding-top: 80px;
+  }
+  .product-card .product-name {
+    font-size: 14px;
+    line-height: 20px;
+    grid-column: 2 / -1;
+  }
+}
+
+/* 소형 화면 (스마트폰) */
+@media (max-width: 576px) {
+  .product-card {
+    grid-template-rows: auto;
+    grid-template-areas:
+      'image'
+      'name'
+      'price'
+      'quantity'
+      'total';
+    grid-template-columns: auto;
+  }
+  .flex_right {
+    justify-content: center;
+  }
+}
+
+/* 각 아이템에 대한 grid-area 설정 */
+.product-card img {
+  grid-area: image;
+}
+
+.product-card .product-name {
+  grid-area: name;
+}
+
+.product-card .price {
+  grid-area: price;
+}
+
+.product-card .quantity-control {
+  grid-area: quantity;
+}
+
+.product-card .total-price {
+  grid-area: total;
+}
+
+.div {
+  line-height: 40px;
+  text-align: center;
+}

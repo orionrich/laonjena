@@ -1,0 +1,403 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin bg-center {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// hero------------------------------------------------
+.hero {
+  width: 100%;
+  height: 600px;
+  position: relative; // 이 위치에서 스택 컨텍스트를 생성합니다.
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); // 오버레이 효과
+    z-index: 1; // 오버레이가 비디오 위에 오도록
+  }
+  .size_wrap {
+    position: relative;
+    width: 1280px;
+    height: 100%;
+    color: #fff;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    h2 {
+      font-weight: 700;
+      font-size: 2.25rem;
+      line-height: 3rem;
+    }
+    p {
+      margin-top: 20px;
+    }
+    .btn {
+      width: 180px;
+      height: 60px;
+      margin-top: 40px;
+      background-color: #fff;
+      border-radius: 40px;
+      color: #b76e79;
+      @include flex-center;
+      img {
+        margin-top: 2px;
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+// 베스트아이템--------------------------------------------------
+:root {
+  --swiper-theme-color: #757575 !important;
+}
+
+.bestitem {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 80px;
+  h2 {
+    font-size: 2.0625rem;
+    display: flex;
+    align-items: center;
+    color: #424242;
+    span {
+      font-size: 1rem;
+      margin-left: 10px;
+      color: #757575;
+    }
+  }
+
+  .best_swiper {
+    margin-top: 60px;
+    --swiper-pagination-progressbar-size: 2px !important;
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      display: none;
+    }
+    .swiper-pagination {
+      top: auto;
+      bottom: 0;
+      margin-top: 40px;
+      position: relative;
+      /* 원하는 위치로 조정. 예를 들면, 10px는 컨테이너 하단에서 10px 떨어진 위치에 pagination을 배치합니다. */
+      /* 필요한 경우 추가 스타일링 */
+    }
+
+    .swiper-slide {
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 200px;
+          height: 200px;
+        }
+        .item_name {
+          margin-top: 20px;
+          color: #757575;
+          font-size: 14px;
+        }
+        .price {
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: bold;
+          span {
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 100px;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.product_wrap {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 100px;
+  .text_btn {
+    display: flex;
+    justify-content: center;
+    font-size: 2.25rem;
+    div {
+      margin: 0 10px;
+      color: #9e9e9e;
+      cursor: pointer;
+    }
+    div.selected {
+      color: #424242;
+    }
+  }
+
+  .product_flex {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .product {
+      width: 300px;
+      margin-top: 60px;
+      h2 {
+        margin-top: 40px;
+        font-size: 18px;
+        color: #424242;
+      }
+      p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #757575;
+        line-height: 20px;
+      }
+      .sale {
+        margin-top: 20px;
+        color: #424242;
+        font-size: 18px;
+        font-weight: bold;
+        span {
+          color: #757575;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .price {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+
+.event_wrap {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 120px;
+  h2 {
+    font-size: 2.0625rem;
+    display: flex;
+    align-items: center;
+    color: #424242;
+    span {
+      font-size: 1rem;
+      margin-left: 10px;
+      color: #757575;
+    }
+  }
+  .event_bere {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.category-section {
+  max-width: 1280px;
+  margin: auto;
+  margin-top: 100px;
+
+  .category-item {
+    display: flex;
+
+    .category-image {
+      width: 100%;
+    }
+
+    .category-content {
+      background-color: #fff;
+      padding: 100px;
+
+      h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: darken(#000, 10%);
+        }
+      }
+    }
+  }
+  .category-reverse {
+    .category-content {
+      order: -1;
+    }
+  }
+}
+
+.laon_jena {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 120px;
+
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+  }
+  .deco {
+    width: 230px;
+    height: 308px;
+    align-self: flex-end;
+  }
+}
+
+// 미디어 쿼리 -------------------------------
+
+/* 중형 화면 (태블릿) */
+@media (max-width: 1279px) {
+  .hero .size_wrap {
+    width: 90%;
+  }
+  .bestitem {
+    width: 90%;
+  }
+  .banner {
+    width: 100%;
+  }
+  .product_wrap {
+    width: 90%;
+  }
+  .product_wrap .product_flex {
+    justify-content: space-around;
+  }
+  .event_wrap {
+    width: 90%;
+  }
+  .event_wrap .event_bere {
+    flex-wrap: wrap;
+  }
+  .event_bere img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+  .btn_category {
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .btn_category a {
+    margin-top: 20px;
+  }
+  .laon_jena {
+    width: 90%;
+    flex-direction: column;
+  }
+  .laon_jena .deco {
+    display: none;
+  }
+  .youtube img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+  }
+  .category-section {
+    .category-item {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      .category-content {
+        padding: 20px;
+      }
+    }
+    .category-reverse {
+      .category-content {
+        order: 0;
+      }
+    }
+  }
+}
+
+/* 소형 화면 (모바일 가로 + 모바일 세로) */
+@media (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+  .banner {
+    display: none;
+  }
+  .hero {
+    height: 500px;
+  }
+  .hero .size_wrap .btn {
+    width: 120px;
+    height: 40px;
+  }
+  .bestitem h2 span {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .product_wrap .product_flex {
+    margin-top: 0px;
+  }
+  .event_wrap .event_bere {
+    margin-top: 20px;
+  }
+  .laon_jena {
+    margin-top: 40px;
+  }
+  .event_wrap {
+    margin-top: 80px;
+  }
+}

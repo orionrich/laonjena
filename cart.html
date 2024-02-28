@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaonJena</title>
+    <script src="js/loadCommonElements.js"></script>
+    <script src="js/common.js"></script>
+    <link rel="stylesheet" href="./css/common.scss" />
+    <!-- 메인 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/css/cart.scss" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <!-- 데스크탑 헤더 -->
+    <header class="desktop-header">
+      <div class="size_wrap">
+        <div class="gnb">
+          <div class="gnb_l">
+            <a href="index.html"
+              ><div class="logo"><span>Laon</span>Jena</div></a
+            >
+            <ul class="main_menu">
+              <!-- 여성 의류 드롭다운 메뉴 -->
+              <li class="dropdown">
+                <a href="product-listing.html" class="dropbtn">여성 의류</a>
+                <div class="dropdown-content">
+                  <a href="product-listing.html">티셔츠</a>
+                  <a href="product-listing.html">드레스</a>
+                  <a href="product-listing.html">청바지</a>
+                  <a href="product-listing.html">스커트</a>
+                  <a href="product-listing.html">재킷</a>
+                </div>
+              </li>
+              <!-- 악세서리 드롭다운 메뉴 -->
+              <li class="dropdown">
+                <a href="product-listing.html" class="dropbtn">악세서리</a>
+                <div class="dropdown-content">
+                  <a href="product-listing.html">목걸이</a>
+                  <a href="product-listing.html">귀걸이</a>
+                  <a href="product-listing.html">팔찌</a>
+                  <a href="product-listing.html">반지</a>
+                  <a href="product-listing.html">모자</a>
+                </div>
+              </li>
+              <!-- 신발 드롭다운 메뉴 -->
+              <li class="dropdown">
+                <a href="product-listing.html" class="dropbtn">신발</a>
+                <div class="dropdown-content">
+                  <a href="product-listing.html">스니커즈</a>
+                  <a href="product-listing.html">힐</a>
+                  <a href="product-listing.html">부츠</a>
+                  <a href="product-listing.html">샌들</a>
+                  <a href="product-listing.html">운동화</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="gnb_r">
+            <div class="search_bar">
+              <input type="text" placeholder="" name="search" class="search-input" />
+              <a href="javascript:void(0)"><img src="./img/Search.svg" alt="" /></a>
+            </div>
+            <ul class="member_menu">
+              <li><a href="login.html">로그인</a></li>
+              <li><a href="cart.html">장바구니</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- 모바일 헤더 -->
+    <header class="mobile-header">
+      <div class="mobile_flexbox">
+        <a href="index.html"
+          ><div class="logo"><span>Laon</span>Jena</div></a
+        >
+        <div class="mobile_btn">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <!-- 모바일 헤더 버튼 누를시 사이드 메뉴 -->
+      <div class="sidebar">
+        <a href="index.html"
+          ><div class="logo"><span>Laon</span>Jena</div></a
+        >
+        <div class="sidebar_menu">
+          <!-- 로그인 및 장바구니 -->
+          <ul>
+            <li><a href="login.html">로그인</a></li>
+            <li><a href="cart.html">장바구니</a></li>
+          </ul>
+          <!-- 카테고리 메뉴 -->
+          <ul>
+            <li class="mobile-dropdown">
+              <a href="javascript:void(0)" class="mobile-dropbtn">여성 의류</a>
+              <div class="mobile-dropdown-content">
+                <a href="product-listing.html">티셔츠</a>
+                <a href="product-listing.html">드레스</a>
+                <a href="product-listing.html">청바지</a>
+                <a href="product-listing.html">스커트</a>
+                <a href="product-listing.html">재킷</a>
+              </div>
+            </li>
+            <li class="mobile-dropdown">
+              <a href="javascript:void(0)" class="mobile-dropbtn">악세서리</a>
+              <div class="mobile-dropdown-content">
+                <a href="product-listing.html">목걸이</a>
+                <a href="product-listing.html">귀걸이</a>
+                <a href="product-listing.html">팔찌</a>
+                <a href="product-listing.html">반지</a>
+                <a href="product-listing.html">모자</a>
+              </div>
+            </li>
+            <li class="mobile-dropdown">
+              <a href="javascript:void(0)" class="mobile-dropbtn">신발</a>
+              <div class="mobile-dropdown-content">
+                <a href="product-listing.html">스니커즈</a>
+                <a href="product-listing.html">힐</a>
+                <a href="product-listing.html">부츠</a>
+                <a href="product-listing.html">샌들</a>
+                <a href="product-listing.html">운동화</a>
+              </div>
+            </li>
+            <!-- 기타 메뉴 항목 추가 가능 -->
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <img src="/img/pd01.png" alt="Product Image" />
+        <div class="product-name">데일리 소매 립 베이직 무지 긴팔티 AVT333</div>
+        <div class="price" id="price-1">15,800원</div>
+        <div class="quantity-control">
+          <button class="decrement-btn">-</button>
+          <input id="quantity-1" type="number" value="1" min="1" />
+          <button class="increment-btn">+</button>
+        </div>
+        <div class="total-price"><span id="total-price-1">15,800</span>원</div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="product-card">
+        <img src="/img/pd02.png" alt="Product Image" />
+        <div class="product-name">Longsleeve 무지 긴팔티</div>
+        <div class="price" id="price-2">29,900원</div>
+        <div class="quantity-control">
+          <button class="decrement-btn">-</button>
+          <input id="quantity-2" type="number" value="1" min="1" />
+          <button class="increment-btn">+</button>
+        </div>
+        <div class="total-price"><span id="total-price-2">29,900</span>원</div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="product-card">
+        <img src="/img/pd03.png" alt="Product Image" />
+        <div class="product-name">여성 크루넥 긴팔</div>
+        <div class="price" id="price-3">21,800</div>
+        <div class="quantity-control">
+          <button class="decrement-btn">-</button>
+          <input id="quantity-3" type="number" value="1" min="1" />
+          <button class="increment-btn">+</button>
+        </div>
+        <div class="total-price">₩<span id="total-price-3">21,800</span></div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="product-card">
+        <img src="/img/pd04.png" alt="Product Image" />
+        <div class="product-name">클래식 로고 긴팔 티셔츠 클래식 블랙</div>
+        <div class="price" id="price-4">13,800</div>
+        <div class="quantity-control">
+          <button class="decrement-btn">-</button>
+          <input id="quantity-4" type="number" value="1" min="1" />
+          <button class="increment-btn">+</button>
+        </div>
+        <div class="total-price">₩<span id="total-price-4">13,800</span></div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="product-card">
+        <img src="/img/pd10.png" alt="Product Image" />
+        <div class="product-name">삐삐뽀뽀 LS 티셔츠</div>
+        <div class="price" id="price-5">29,800</div>
+        <div class="quantity-control">
+          <button class="decrement-btn">-</button>
+          <input id="quantity-5" type="number" value="1" min="1" />
+          <button class="increment-btn">+</button>
+        </div>
+        <div class="total-price">₩<span id="total-price-5">29,800</span></div>
+      </div>
+      <div class="flex_right">
+        <div class="buy_info">
+          <div class="buy_info_a">주문내역</div>
+          <div class="buy_info_b"><span>가격</span><span>45,000</span></div>
+          <div class="buy_info_c"><span>배송비</span><span>4,000</span></div>
+          <div class="buy_info_d"><span>총 가격</span><span>49,000원</span></div>
+          <a class="buy_btn" href="#">주문하기</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+      <div class="footer_line line01"></div>
+      <div class="foter_wrap">
+        <div>
+          <div class="logo">
+            <a href="index.html"><span>Laon</span>Jena</a>
+          </div>
+          <div class="sns_wrap">
+            <a href="javascript:void(0)"><img src="./img/icon1.png" alt="페이스북" /></a>
+            <a href="javascript:void(0)"><img src="./img/icon2.png" alt="트위터" /></a>
+            <a href="javascript:void(0)"><img src="./img/icon3.png" alt="인스타그램" /></a>
+            <a href="javascript:void(0)"><img src="./img/icon4.png" alt="유튜브" /></a>
+          </div>
+        </div>
+        <div>
+          <h4>INFORMATION</h4>
+          <div class="text_flex">
+            <div class="l_text">
+              <p>회사명</p>
+              <p>사업자등록번호</p>
+            </div>
+            <div class="r_text">
+              <p>라온제나</p>
+              <p>591-34-03914</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>ADDRESS</h4>
+          <div class="text_flex">
+            <div class="r_text">
+              <p>서울특별시 서초구 서초중앙로 249 가든프라자 2층</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>CONTACT</h4>
+          <div class="text_flex">
+            <div class="l_text">
+              <p>전화번호</p>
+              <p>이메일</p>
+            </div>
+            <div class="r_text">
+              <p>010-3421-2939</p>
+              <p>laonjena@gmaill.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer_line"></div>
+      <p class="copyright">© 2023 라온제나. 모든 권리 보유</p>
+    </footer>
+    <script src="/js/cart.js"></script>
+  </body>
+</html>
